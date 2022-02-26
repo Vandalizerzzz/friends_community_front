@@ -1,18 +1,47 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="box">🔔 {{ billboard.content }}</div>
+    <div class="columns">
+      <!--bulma-->
+      <div class="column is-three-quarters">
+        <TopicList></TopicList>
+      </div>
+      <div class="column">
+        <CardBar></CardBar>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { getBillboard } from "@/api/billboard.js";
+import CardBar from "@/views/card/CardBar.vue";
+import PostList from "@/views/post/Index.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  data() {
+    return {
+      billboard: {
+        content: "",
+      },
+    };
+  },
+  methods: {
+    async fetchBillboard() {
+      const { data: res } = await getBillboard();
+      console.log(res);
+      this.billboard = res;
+    },
+  },
+  created() {
+    console.log("created invoked");
+    this.fetchBillboard();
+  },
   components: {
-    HelloWorld
-  }
-}
+    CardBar,
+    TopicList: PostList,
+  },
+};
 </script>
