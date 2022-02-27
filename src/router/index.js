@@ -9,6 +9,24 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/Home.vue')
   },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/views/auth/Register.vue'),
+    meta: { title: "用户注册" }
+
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/error/404.vue'),
+    meta: { title: "404-NotFound" }
+  },
+  {
+    path: '*',
+    redirect: "/404",
+    hidden: true
+  }
 
 ]
 
