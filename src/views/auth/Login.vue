@@ -92,7 +92,6 @@ export default {
                 duration: 2000,
               });
               setTimeout(() => {
-                //延缓一下页面的跳转，使得message能够展示
                 this.loading = false;
                 this.$router.push({ path: this.redirect || "/" });
               }, 0.1 * 1000);
