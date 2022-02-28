@@ -17,6 +17,13 @@ const routes = [
 
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/auth/Login.vue'),
+    meta: { title: "用户登录" }
+
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('@/views/error/404.vue'),
