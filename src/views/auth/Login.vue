@@ -91,6 +91,10 @@ export default {
                 type: "success",
                 duration: 2000,
               });
+
+              //向后端请求登录用户的数据存储于vuex中
+              this.$store.dispatch("/user/getUserInfo");
+
               setTimeout(() => {
                 this.loading = false;
                 this.$router.push({ path: this.redirect || "/" });

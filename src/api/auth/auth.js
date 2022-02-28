@@ -17,3 +17,11 @@ export function login(userDTO) {
     data: userDTO
   })
 }
+
+//登录同时获取前台登录用户的信息
+export function getUserInfo() {
+  return request({
+    url: '/ums/user/info',
+    method: 'get',
+  })
+}
