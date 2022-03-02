@@ -31,7 +31,6 @@ export default {
   methods: {
     async fetchBillboard() {
       const { data: res } = await getBillboard();
-      console.log(res);
       this.billboard = res;
     },
   },

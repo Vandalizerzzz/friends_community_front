@@ -18,7 +18,6 @@ const mutations = {
 const actions = {
   // 用户登录
   login({ commit }, userInfo) {
-    console.log(userInfo)
     const { name, pass, rememberMe } = userInfo
     return new Promise((resolve, reject) => {
       login({ username: name.trim(), password: pass, rememberMe: rememberMe }).then(response => {
@@ -37,12 +36,14 @@ const actions = {
       getUserInfo().then(response => {
         const { data } = response
         if (!data) {
+          console.log("getUserInfo错误执行");
           commit('SET_TOKEN_STATE', '')
           commit('SET_USER_STATE', '')
           removeToken()
           resolve()
           reject('Verification failed, please Login again.')
         }
+        console.log("用户名是" + data.username);
         commit('SET_USER_STATE', data)
         resolve(data)
       }).catch(error => {

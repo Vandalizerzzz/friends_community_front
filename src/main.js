@@ -12,6 +12,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 //导入全局样式
 import '@/assets/app.css'
 
+//导入运行全局路由守卫
+import '@/permisson.js'
+
 Vue.use(Buefy);
 Vue.use(ElementUI);
 
